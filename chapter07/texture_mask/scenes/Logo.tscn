@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://textures/game-1926906_640.png" type="Texture" id=1]
+[ext_resource path="res://textures/Gradientpng.png" type="Texture" id=2]
+[ext_resource path="res://textures/CircleMask.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 2
+
+[sub_resource type="Animation" id=2]
+resource_name = "animLogoReveal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mask:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 6, 6 ) ]
+}
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 0.45098, 0.427451, 0.498039, 1 )
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 40.0
+margin_right = -320.0
+margin_bottom = -40.0
+rect_pivot_offset = Vector2( 320, 320 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Mask" type="Light2D" parent="."]
+position = Vector2( 640, 360 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+mode = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "animLogoReveal"
+playback_speed = 3.0
+anims/animLogoReveal = SubResource( 2 )

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ConfigLoader.cs" type="Script" id=1]
+[ext_resource path="res://Zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SaveState.cs" type="Script" id=3]
+
+[node name="ConfigFile" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Red" parent="." instance=ExtResource( 2 )]
+position = Vector2( -303.53, -20.8001 )
+
+[node name="Red2" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.388235, 1, 0.427451, 1 )
+position = Vector2( -393.687, 121.536 )
+
+[node name="Red3" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.94902, 0.388235, 1 )
+position = Vector2( -433.789, -102.93 )
+
+[node name="SaveState" type="Node2D" parent="."]
+script = ExtResource( 3 )

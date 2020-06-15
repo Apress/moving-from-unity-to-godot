@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/player/FPSControl.cs" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.6
+height = 1.5
+
+[node name="Player" type="KinematicBody" groups=[
+"Player",
+]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+LeftAxis = "move_left"
+RightAxis = "move_right"
+UpAxis = "move_forward"
+DownAxis = "move_backward"
+HeadPath = NodePath("Head")
+CamPath = NodePath("Head/Camera")
+HeadAmplitude = 0.6
+HeadFrequency = 6.0
+RunMultiplier = 2.0
+
+[node name="Collision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+fov = 80.0
+near = 0.02
+far = 250.0

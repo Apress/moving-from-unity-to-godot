@@ -1,0 +1,14 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+tonemap_mode = 3
+ssao_enabled = true
+ssao_edge_sharpness = 6.0
+glow_enabled = true
+glow_intensity = 1.29
+glow_bloom = 0.58
+glow_hdr_threshold = 0.81
